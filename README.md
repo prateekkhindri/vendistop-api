@@ -1,1 +1,1 @@
-# Vendistop API Dev
+# Vendistop API
