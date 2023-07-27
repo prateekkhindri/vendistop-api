@@ -41,3 +41,14 @@ export const adminLoginValidation = (req, res, next) => {
 
   joiValidator(schema, req, res, next);
 };
+
+// Reset password validation for a registered user
+export const resetPasswordValidation = (req, res, next) => {
+  const schema = Joi.object({
+    email: EMAIL,
+    otp: OTP.required(),
+    password: PASSWORD,
+  });
+
+  joiValidator(schema, req, res, next);
+};

@@ -2,3 +2,28 @@
 GET http://localhost:8000
 
 
+## Registration and Login
+
+### User registration
+POST http://localhost:8000/api/v1/register-login
+Content-Type: application/json
+
+{
+    "fName": "Prateek",
+    "lName": "Khindri",
+    "email": "d@gmail.com",
+    "password": "1234567",
+    "phone": "0444444444",
+    "address": "Somewhere in Sydney"
+}
+
+
+
+### User login
+POST http://localhost:8000/api/v1/register-login/login
+Content-Type: application/json
+
+{
+    "email": "a@gmail.com",
+    "password": "Helloworld90"
+}
