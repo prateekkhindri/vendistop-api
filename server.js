@@ -5,6 +5,7 @@ import morgan from "morgan";
 import cors from "cors";
 import fileUpload from "express-fileupload";
 import { mongoConnect } from "./src/config/dbConfig.js";
+import userRouter from "./src/routers/userRouter.js";
 
 const app = express();
 
@@ -25,6 +26,9 @@ app.use(fileUpload());
 
 // Connect to the database
 mongoConnect();
+
+// API's
+app.use("/api/v1/admin", userRouter);
 
 app.get("/", (req, res) => {
   res.json({
