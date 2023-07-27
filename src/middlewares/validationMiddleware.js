@@ -52,3 +52,29 @@ export const resetPasswordValidation = (req, res, next) => {
 
   joiValidator(schema, req, res, next);
 };
+
+// Update password validation for a logged in user
+export const updateAdminPasswordValidation = (req, res, next) => {
+  const schema = Joi.object({
+    email: EMAIL,
+    currentPassword: PASSWORD,
+    password: PASSWORD,
+  });
+
+  joiValidator(schema, req, res, next);
+};
+
+// Update admin profile validation
+export const updateAdminProfileValidation = (req, res, next) => {
+  const schema = Joi.object({
+    fName: FNAME,
+    lName: LNAME,
+    // dob: DOB,
+    phone: PHONE,
+    address: ADDRESS,
+    email: EMAIL,
+    currentPassword: PASSWORD,
+  });
+
+  joiValidator(schema, req, res, next);
+};
