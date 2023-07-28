@@ -5,10 +5,12 @@ import morgan from "morgan";
 import cors from "cors";
 import fileUpload from "express-fileupload";
 import { mongoConnect } from "./src/config/dbConfig.js";
+import { adminAuth } from "./src/middlewares/AuthMiddleware.js";
 import userRouter from "./src/routers/userRouter.js";
 import registerLoginRouter from "./src/routers/registerLoginRouter.js";
 import categoryRouter from "./src/routers/categoryRouter.js";
 import productRouter from "./src/routers/productRouter.js";
+import cartsRouter from "./src/routers/cartsRouter.js";
 
 const app = express();
 
@@ -35,6 +37,7 @@ app.use("/api/v1/register-login", registerLoginRouter);
 app.use("/api/v1/admin", userRouter);
 app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/products", productRouter);
+app.use("/api/v1/cart", adminAuth, cartsRouter);
 
 app.get("/", (req, res) => {
   res.json({
