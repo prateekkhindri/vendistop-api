@@ -27,3 +27,101 @@ Content-Type: application/json
     "email": "a@gmail.com",
     "password": "Helloworld90"
 }
+
+
+## ======= Admin Category API's
+### Add a new category (Admin only)
+POST http://localhost:8000/api/v1/categories
+Content-Type: application/json 
+
+{
+    "name": "Jewellery",
+    "parentCatId": null
+}
+
+
+
+### Fetch all the categories
+GET http://localhost:8000/api/v1/categories
+
+
+### Fetch single category by id
+GET http://localhost:8000/api/v1/categories/64ab6c91acb0f75f9337933a
+
+
+### Update a single category (Admin only)
+PUT http://localhost:8000/api/v1/categories
+Content-Type: application/json 
+
+{
+    "_id": "64ab6c6bacb0f75f93379338",
+    "name": "Mens Clothing",
+    "parentCatId": null
+}
+
+### Delete Category/Categories (Admin Only)
+DELETE http://localhost:8000/api/v1/categories
+Content-Type: application/json
+
+{
+    "ids": ["64ab70ab438d91c73781651a"]
+}
+
+
+
+
+### Get user information 
+GET http://localhost:8000/api/v1/admin
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRAZ21haWwuY29tIiwiaWF0IjoxNjg5ODMwNjczLCJleHAiOjE2OTI0MjI2NzN9.3Ivl8NysedmhaDLqcLo8nZZVgcr6TAxn3Rj13PPT9x4
+
+
+### Update password for a logged in user
+PATCH http://localhost:8000/api/v1/admin
+Content-Type: application/json 
+
+{
+    "currentPassword": "123456",
+    "password": "123456",
+    "email": "a@my.com"
+}
+
+
+### Update profile information for a logged in user
+PUT http://localhost:8000/api/v1/admin
+Content-Type: application/json 
+
+{
+    "fName": "cdfsd",
+    "lName": "fdrseafe",
+    "phone": "0444444444",
+    "address": "dgfsggdggdsdfdgf",
+    "email": "something@ymail.com",
+    "currentPassword": "fhlidjfudjkl"
+}
+
+
+
+## ----------- Reset Password API'S (FOR REGISTERED USERS)
+### Request OTP for a password reset
+POST http://localhost:8000/api/v1/register-login/otp-request
+Content-Type: application/json 
+
+{
+    "email": "a@gmail.com"
+}
+
+
+### Reset new password
+PATCH http://localhost:8000/api/v1/register-login/password
+Content-Type: application/json 
+
+{
+    "email": "a@gmail.com",
+    "otp": "753332",
+    "password": "Helloworld90"
+}
+
+
+### ----- Request new access JWT --------
+GET http://localhost:8000/api/v1/admin/accessjwt
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRAZ21haWwuY29tIiwiaWF0IjoxNjg5MjMxNDYxLCJleHAiOjE2OTE4MjM0NjF9.XFixWhUEFIys0Ek50kMfHlKmIR2TOgCUor_ZkWepbLQ

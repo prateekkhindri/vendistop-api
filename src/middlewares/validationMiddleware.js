@@ -23,7 +23,6 @@ export const adminRegistrationValidation = (req, res, next) => {
   const schema = Joi.object({
     fName: FNAME,
     lName: LNAME,
-    // dob: DOB,
     phone: PHONE,
     email: EMAIL,
     password: PASSWORD,
@@ -64,16 +63,39 @@ export const updateAdminPasswordValidation = (req, res, next) => {
   joiValidator(schema, req, res, next);
 };
 
-// Update admin profile validation
+// Update profile validation for a logged in user
 export const updateAdminProfileValidation = (req, res, next) => {
   const schema = Joi.object({
     fName: FNAME,
     lName: LNAME,
-    // dob: DOB,
     phone: PHONE,
     address: ADDRESS,
     email: EMAIL,
     currentPassword: PASSWORD,
+  });
+
+  joiValidator(schema, req, res, next);
+};
+
+// Categories Validation
+
+// Add new category validation
+export const createCategoryValidation = (req, res, next) => {
+  req.body.parentCatId = req.body.parentCatId ? req.body.parentCatId : null;
+  const schema = Joi.object({
+    name: SHORTSTR.required(),
+    parentCatId: SHORTSTR.allow(null),
+  });
+
+  joiValidator(schema, req, res, next);
+};
+
+// Update category validation
+export const updateCategoryValidation = (req, res, next) => {
+  const schema = Joi.object({
+    _id: SHORTSTR.required(),
+    name: SHORTSTR.required(),
+    parentCatId: SHORTSTR.allow(null, ""),
   });
 
   joiValidator(schema, req, res, next);

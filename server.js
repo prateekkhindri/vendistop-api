@@ -7,6 +7,7 @@ import fileUpload from "express-fileupload";
 import { mongoConnect } from "./src/config/dbConfig.js";
 import userRouter from "./src/routers/userRouter.js";
 import registerLoginRouter from "./src/routers/registerLoginRouter.js";
+import categoryRouter from "./src/routers/categoryRouter.js";
 
 const app = express();
 
@@ -31,6 +32,7 @@ mongoConnect();
 // API's
 app.use("/api/v1/register-login", registerLoginRouter);
 app.use("/api/v1/admin", userRouter);
+app.use("/api/v1/categories", categoryRouter);
 
 app.get("/", (req, res) => {
   res.json({
