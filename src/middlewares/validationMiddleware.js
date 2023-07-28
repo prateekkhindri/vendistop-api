@@ -1,8 +1,6 @@
 import Joi from "joi";
 import {
   ADDRESS,
-  DATE,
-  DOB,
   EMAIL,
   FNAME,
   joiValidator,
@@ -12,9 +10,7 @@ import {
   PASSWORD,
   PHONE,
   PRICE,
-  QTY,
   SHORTSTR,
-  STATUS,
   TOPPRODUCT,
 } from "./validationConstant.js";
 
