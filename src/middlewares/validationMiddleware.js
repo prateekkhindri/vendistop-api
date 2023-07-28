@@ -1,8 +1,6 @@
 import Joi from "joi";
 import {
   ADDRESS,
-  DATE,
-  DOB,
   EMAIL,
   FNAME,
   joiValidator,
@@ -12,9 +10,7 @@ import {
   PASSWORD,
   PHONE,
   PRICE,
-  QTY,
   SHORTSTR,
-  STATUS,
   TOPPRODUCT,
 } from "./validationConstant.js";
 
@@ -96,6 +92,33 @@ export const updateCategoryValidation = (req, res, next) => {
     _id: SHORTSTR.required(),
     name: SHORTSTR.required(),
     parentCatId: SHORTSTR.allow(null, ""),
+  });
+
+  joiValidator(schema, req, res, next);
+};
+
+// Product Validation
+export const newProductValidation = (req, res, next) => {
+  const schema = Joi.object({
+    name: SHORTSTR.required(),
+    description: SHORTSTR.required(),
+    details: LONGSTR.required(),
+    price: PRICE.required(),
+    catId: SHORTSTR.allow("", null),
+    topProduct: TOPPRODUCT,
+  });
+
+  joiValidator(schema, req, res, next);
+};
+
+export const updateProductValidation = (req, res, next) => {
+  const schema = Joi.object({
+    name: SHORTSTR.required(),
+    description: SHORTSTR.required(),
+    details: LONGSTR.required(),
+    price: PRICE.required(),
+    topProduct: TOPPRODUCT,
+    catId: SHORTSTR.allow("", null),
   });
 
   joiValidator(schema, req, res, next);
