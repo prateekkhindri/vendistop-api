@@ -125,3 +125,30 @@ Content-Type: application/json
 ### ----- Request new access JWT --------
 GET http://localhost:8000/api/v1/admin/accessjwt
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRAZ21haWwuY29tIiwiaWF0IjoxNjg5MjMxNDYxLCJleHAiOjE2OTE4MjM0NjF9.XFixWhUEFIys0Ek50kMfHlKmIR2TOgCUor_ZkWepbLQ
+
+
+
+## ========= Product API'S ========= ##
+### Create a new product
+POST http://localhost:8000/api/v1/products
+Content-Type: application/json 
+
+{
+    "name": "Earphones",
+    "description": "This is an awesome product",
+    "details": "This is an awesome product This is an awesome product This is an awesome product This is an awesome product This is an awesome product This is an awesome product This is an awesome product This is an awesome product This is an awesome product This is an awesome product This is an awesome product This is an awesome product This is an awesome product This is an awesome product This is an awesome product This is an awesome product This is an awesome product",
+    "price": 200,
+    "catId": null,
+    "topProduct": "false"
+}
+
+
+### Get all products
+GET http://localhost:8000/api/v1/products
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAeW1haWwuY29tIiwiaWF0IjoxNjY2MjM0NzQ5LCJleHAiOjE2NjYyMzU2NDl9.K5Q6odICNYE3reJQKDTFrJtll6JH1MUiefE1NErYCGQ
+
+
+## ============= Order API'S
+### Get orders
+GET http://localhost:8000/api/v1/orders/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAeW1haWwuY29tIiwiaWF0IjoxNjY2NjU5NTIxLCJleHAiOjE2NjY2NjA0MjF9.G0anAJT0UzjNOeRm8YU56kVPFTMsLXNdEUyzR2is4hQ

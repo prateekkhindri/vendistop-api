@@ -12,6 +12,7 @@ import categoryRouter from "./src/routers/categoryRouter.js";
 import productRouter from "./src/routers/productRouter.js";
 import cartsRouter from "./src/routers/cartsRouter.js";
 import ordersRouter from "./src/routers/ordersRouter.js";
+import paymentsRouter from "./src/routers/paymentsRouter.js";
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/cart", adminAuth, cartsRouter);
 app.use("/api/v1/orders", adminAuth, ordersRouter);
+app.use("/api/v1/payment", paymentsRouter);
 
 app.get("/", (req, res) => {
   res.json({
