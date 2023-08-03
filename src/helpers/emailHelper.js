@@ -60,7 +60,7 @@ export const passwordResetOTP = (obj) => {
     subject: "OTP for password reset", // Subject line
     text: `Hi ${obj.fName}, please use the following OTP to reset your password: ${obj.otp}`, // plain text body
     html: `
-        <p>Hello ${obj.fName} ${userObj.lName}</p>
+        <p>Hello ${obj.fName}</p>
         <br/>
         <br/>
         <p>Please use the following OTP to reset your password</p>

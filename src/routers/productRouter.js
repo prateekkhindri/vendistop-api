@@ -26,6 +26,8 @@ router.post("/", newProductValidation, async (req, res, next) => {
       const imageLocation = (await S3UploadHelper.uploadFile(image, imageKey))
         .Location;
 
+      req.body.topProduct = req.body.topProduct === "true" ? true : false;
+
       const newProduct = {
         ...req.body,
         image: imageLocation,
