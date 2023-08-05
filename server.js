@@ -25,10 +25,10 @@ let corsOptions = {
 };
 
 // Middlewares
+app.use(cors(corsOptions));
+app.use(express.json());
 app.use(helmet());
 app.use(morgan("tiny"));
-app.use(express.json());
-app.use(cors(corsOptions));
 app.use(fileUpload());
 
 // Connect to the database
