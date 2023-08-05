@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-const sendMail = async (emailInfo) => {
+export const sendMail = async (emailInfo) => {
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: process.env.MAIL_SMTP,
