@@ -21,10 +21,7 @@ const PORT = process.env.PORT || 8000;
 // Define CORS options
 let corsOptions = {
   origin: ["http://localhost:3000", "https://vendistop.netlify.app"],
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true,
-  optionsSuccessStatus: 204,
-  allowedHeaders: ["Content-Type", "Authorization"],
+  optionsSuccessStatus: 200,
 };
 
 // Middlewares
